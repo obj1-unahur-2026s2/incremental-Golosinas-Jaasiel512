@@ -1,0 +1,144 @@
+import golosinas.*
+
+describe "Bombón"{
+    test "Tiene el bombón sus atributos esperados"{
+        assert.equals(bombon.valor(), 5)
+        assert.equals(bombon.peso(), 15)
+        assert.that(bombon.sabor() == frutilla)
+        assert.that(bombon.esLibreDeGluten())
+    }
+
+    test "Bombón pesa 11g después de recibir un mordisco"{
+        bombon.recibirMordisco()
+        assert.equals(bombon.peso(), 11)
+    }
+}
+
+describe "Alfajor"{
+    test "Tiene el alfajor sus atributos esperados"{
+        assert.equals(alfajor.valor(), 12)
+        assert.equals(alfajor.peso(), 300)
+        assert.that(alfajor.sabor() == chocolate)
+        assert.notThat(alfajor.esLibreDeGluten())
+    }
+
+    test "Alfajor pesa 240g después de recibir un mordisco"{
+        alfajor.recibirMordisco()
+        assert.equals(alfajor.peso(), 240)
+    }
+}
+
+describe "Caramelo" {
+    test "Tiene el caramelo sus atributos esperados"{
+        assert.equals(caramelo.valor(), 1)
+        assert.equals(caramelo.peso(), 5)
+        assert.that(caramelo.sabor() == frutilla)
+        assert.that(caramelo.esLibreDeGluten())
+    }
+
+    test "Caramelo pesa 4g después de recibir un mordisco"{
+        caramelo.recibirMordisco()
+        assert.equals(caramelo.peso(), 4)
+    }
+}
+
+describe "Chupetín" {
+    test "Tiene el chupetín sus atributos esperados"{
+        assert.equals(chupetin.valor(), 2)
+        assert.equals(chupetin.peso(), 7)
+        assert.that(chupetin.sabor() == naranja)
+        assert.that(chupetin.esLibreDeGluten())
+    }
+
+    test "Chupetín pesa 6.3g después de recibir un mordisco"{
+        chupetin.recibirMordisco()
+        assert.equals(chupetin.peso(), 6.3)
+    }
+}
+
+describe "Oblea" {
+    test "Tiene la oblea sus atributos esperados"{
+        assert.equals(oblea.valor(), 5)
+        assert.equals(oblea.peso(), 250)
+        assert.that(oblea.sabor() == vainilla)
+        assert.notThat(oblea.esLibreDeGluten())
+    }
+
+    test "Oblea pesa 15.625g después de recibir 3 mordiscos"{
+        oblea.recibirMordisco()
+        oblea.recibirMordisco()
+        oblea.recibirMordisco()
+        assert.equals(oblea.peso(), 15.625)
+    }
+}
+
+describe "Chocolatín" {
+    test "Tiene el chocolatín de 40g sus atributos esperados"{
+        assert.equals(chocolatin.valor(), 20)
+        assert.equals(chocolatin.peso(), 40)
+        assert.that(chocolatin.sabor() == chocolate)
+        assert.notThat(chocolatin.esLibreDeGluten())
+    }
+
+    test "Tiene el chocolatín de 100g sus atributos esperados"{
+        assert.equals(chocolatin.valor(), 50)
+        assert.equals(chocolatin.peso(), 100)
+        assert.that(chocolatin.sabor() == chocolate)
+        assert.notThat(chocolatin.esLibreDeGluten())
+    }
+
+    test "Chocolatín de 40g pesa 38g después de recibir un mordisco"{
+        chocolatin.recibirMordisco()
+        assert.equals(chocolatin.peso(), 38)
+    }
+
+    test "Chocolatín de 100g pesa 98g después de recibir un mordisco"{
+        chocolatin.recibirMordisco()
+        assert.equals(chocolatin.peso(), 98)
+    }     
+}
+
+describe "Pastilla tutti-frutti" {
+    test "La pastilla de tutti-frutti es libre de gluten y vale 7 pesos"{
+        pastillaTuttiFrutti.libreGluten()
+        assert.that(pastillaTuttiFrutti.esLibreDeGluten())
+        assert.equals(pastillaTuttiFrutti.valor(), 7)
+    }
+
+    test "La pastilla de tutti-frutti no es libre de gluten y vale 10 pesos"{
+        pastillaTuttiFrutti.noLibreGluten()
+        assert.notThat(pastillaTuttiFrutti.esLibreDeGluten())
+        assert.equals(pastillaTuttiFrutti.valor(), 10)
+    }
+
+    test "La pastilla de tutti-frutti con sabor de frutilla pesa 4g y sabe a chocolate ñuego de un mordisco"{
+        pastillaTuttiFrutti.recibirMordisco()
+        assert.equals(pastillaTuttiFrutti.peso(), 4)
+        assert.that(pastillaTuttiFrutti.sabor() == chocolate)
+    }
+}
+
+describe "Golosina bañada"{
+    test "Tiene la pastilla de tutti-frutti sin gluten bañada sus atributos esperados"{
+        assert.equals(golosinaBaniada.valor(), 9)
+        assert.equals(golosinaBaniada.peso(), 9)
+        assert.that(golosinaBaniada.sabor() == frutilla)
+        assert.that(golosinaBaniada.esLibreDeGluten())
+    }
+
+    test "Tiene el chocolatín bañado de 40g sus atributos esperados"{
+        assert.equals(golosinaBaniada.valor(), 22)
+        assert.equals(golosinaBaniada.peso(), 44)
+        assert.that(golosinaBaniada.sabor() == chocolate)
+        assert.notThat(golosinaBaniada.esLibreDeGluten())
+    }
+
+    test "Tiene el chupetín bañado sus atributos esperados"{
+        assert.equals(golosinaBaniada.valor(), 4)
+        assert.equals(golosinaBaniada.peso(), 11)
+        assert.that(golosinaBaniada.sabor() == naranja)
+        assert.that(golosinaBaniada.esLibreDeGluten())
+    }
+}
+
+
